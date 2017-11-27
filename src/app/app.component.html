@@ -35,5 +35,20 @@
         </form>
       </div>
   </div>
+  <br>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <p>ngModel: {{arrayModel}}</p>
+      <form #newForm="ngForm">
+        <div class="select">
+          <ng-simple-select class="select" [(ngModel)]="arrayModel" name="anotherName" ngDefaultControl>
+            <ng-simple-select-option *ngFor="let option of arrayOptions"
+                                     [value]="option.value">{{option.displayValue}}</ng-simple-select-option>
+          </ng-simple-select>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 

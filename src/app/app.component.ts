@@ -11,6 +11,17 @@ export class AppComponent implements OnChanges{
   test2 = 2;
 
   testModel = '';
+  arrayOptions = [{
+    displayValue: 'displayValue1',
+    value: 'value1'
+  },{
+    displayValue: 'displayValue2',
+    value: 'value2'
+  },{
+    displayValue: 'displayValue3',
+    value: 'value3'
+  }];
+  arrayModel = '';
   ngOnChanges(s) {
     console.log(s);
   }

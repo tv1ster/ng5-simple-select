@@ -19,6 +19,10 @@ import { NgSimpleSelectOptionComponent } from './ng-simple-select-option/ng-simp
     BrowserModule,
     FormsModule
   ],
+  exports: [
+    NgSimpleSelectComponent,
+    NgSimpleSelectOptionComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

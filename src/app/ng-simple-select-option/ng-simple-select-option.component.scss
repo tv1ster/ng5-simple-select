@@ -1,6 +1,7 @@
 @import "../../variables";
 .ng-simple-select-option {
   padding: 1px 5px;
+  cursor: default;
   &:hover {
     background-color: lighten($border_color, 10%);
   }

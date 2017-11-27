@@ -19,10 +19,10 @@ import {ParentChildService} from '../parent-child/parent-child.service';
   ]
 })
 export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueAccessor  {
-  value;
   public disabled;
   public showDropdown: boolean;
-  private value: string = 'Placeholder';
+  public value: string = 'Placeholder';
+  public displayValue: string;
 
   constructor(private element: ElementRef,
               private parentChild: ParentChildService) {
@@ -52,14 +52,14 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
     }
   }
 
-  writeValue(rating: string): void {
+  writeValue(newVal: string): void {
     if (!this.disabled) {
-      this.value = rating;
+      this.value = newVal;
       this.onChange(this.value);
     }
   }
 
-  registerOnChange(fn: (rating: number) => void): void {
+  registerOnChange(fn: (newVal: string) => void): void {
     this.onChange = fn;
   }
 
@@ -67,7 +67,7 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
     this.onTouched = fn;
   }
 
-  onChange = (newVal: number) => {};
+  onChange = (newVal: string) => {};
   onTouched = () => {};
 
   setDisabledState(isDisabled: boolean): void {
