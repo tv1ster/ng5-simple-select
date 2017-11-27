@@ -1,8 +1,9 @@
 <div class="ng-simple-select">
-  <div class="ng-simple-select_input">
+  <div class="ng-simple-select_input"
+       (click)="toggleDropdown()">
     Input goes here
   </div>
-  <div class="ng-simple-select_dropdown">
+  <div class="ng-simple-select_dropdown" [hidden]="!showDropdown">
     <ng-content></ng-content>
   </div>
 </div>
