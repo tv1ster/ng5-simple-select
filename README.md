@@ -1,3 +1,7 @@
+# What is going on
+
+I'm trying just to implement functionality, which will look like standard select from code perspective.  
+
 # Ng5SimpleSelect
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
