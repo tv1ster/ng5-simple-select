@@ -1,0 +1,35 @@
+$border_color: rgb(169, 169, 169);
+
+.ng-simple-select {
+  max-width: 300px;
+  position: relative;
+  &_input {
+    width: 100%;
+    border: 1px solid $border_color;
+    display: inline-block;
+    position: relative;
+    padding: 1px 20px 1px 5px;
+    cursor: default;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 12px;
+      right: 5px;
+      border: 5px solid transparent;
+      border-top-color: black;
+    }
+    &:hover {
+      border-color: darken($border_color, 10%);
+    }
+  }
+  &_dropdown {
+    border: 1px solid $border_color;
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+}
