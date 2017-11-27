@@ -1,10 +1,10 @@
 @import "../../variables";
 
 .ng-simple-select {
-  max-width: 300px;
   position: relative;
   &_input {
     width: 100%;
+    height: 28px;
     border: 1px solid $border_color;
     display: inline-block;
     position: relative;
@@ -26,10 +26,12 @@
     }
   }
   &_dropdown {
+    background-color: white;
+    z-index: 1;
     border: 1px solid $border_color;
     display: block;
     position: absolute;
-    top: 100%;
+    top: 28px;
     width: 100%;
   }
 }

@@ -10,12 +10,30 @@
       <h2>
         Simple select
       </h2>
-      <ng-simple-select>
-        <ng-simple-select-option>1</ng-simple-select-option>
-        <ng-simple-select-option>2</ng-simple-select-option>
-      </ng-simple-select>
+
+      <div class="select">
+        <ng-simple-select>
+          <ng-simple-select-option>1</ng-simple-select-option>
+          <ng-simple-select-option>2</ng-simple-select-option>
+        </ng-simple-select>
+      </div>
 
     </div>
+  </div>
+  <br/>
+  <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <p>ngModel: {{testModel}}</p>
+        <form #newForm="ngForm">
+          <div class="select">
+            <ng-simple-select class="select" [(ngModel)]="testModel" name="test" ngDefaultControl>
+              <ng-simple-select-option [value]="test1">1</ng-simple-select-option>
+              <ng-simple-select-option [value]="test2">2</ng-simple-select-option>
+            </ng-simple-select>
+          </div>
+        </form>
+      </div>
   </div>
 </div>
 
