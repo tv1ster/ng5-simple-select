@@ -2,30 +2,25 @@
 
 I'm trying just to implement functionality, which will look like standard select from code perspective.  
 
-# Ng5SimpleSelect
+```
+<ng-simple-select [(ngModel)]="arrayModel" name="anotherName" ngDefaultControl>
+  <ng-simple-select-option *ngFor="let option of arrayOptions"
+                           [value]="option.value">{{option.displayValue}}</ng-simple-select-option>
+</ng-simple-select>
+```
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
+The main difference right now, that it should have ngDefaultControl to work properly with template-driven form and reactive from
 
-## Development server
+![alt text](https://github.com/tv1ster/ng5-simple-select/blob/master/test.gif?raw=true "How it is working right now")
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# TODO
+- Adding events
+- Explore more displayValue -> modelValue behaviour
+- Placeholder
+- Highliting
+- Scroll
+- Search o typing
+- Keypress functionality
+- Deploy on npm
+- ...
+- PROFIT!
