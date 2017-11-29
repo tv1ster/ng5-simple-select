@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
-import {ParentChildService} from '../parent-child/parent-child.service';
 
 @Component({
   selector: 'ng-simple-select-option',
@@ -8,9 +7,9 @@ import {ParentChildService} from '../parent-child/parent-child.service';
 })
 export class NgSimpleSelectOptionComponent implements OnInit {
   @Input() value?: string;
+  private parentChangeFn;
 
-  constructor(private element: ElementRef,
-              private parentChild: ParentChildService) { }
+  constructor(private element: ElementRef) { }
 
   ngOnInit() {
     //setting value, if it's not provided
@@ -20,13 +19,10 @@ export class NgSimpleSelectOptionComponent implements OnInit {
   }
 
   public setParentValue() {
-    let correctParent = this.element.nativeElement.parentNode;
-    let i = 0;
-    while (correctParent.nodeName !== 'NG-SIMPLE-SELECT' && i < 10) {
-      correctParent = correctParent.parentNode;
-    }
-    let fn = this.parentChild.getParentOnChangeFn(correctParent);
-    fn(this.value);
+    this.parentChangeFn(this.value);
   }
 
+  public setParentChangeFn(fn) {
+    this.parentChangeFn = fn;
+  }
 }

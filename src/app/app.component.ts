@@ -25,4 +25,10 @@ export class AppComponent implements OnChanges{
   ngOnChanges(s) {
     console.log(s);
   }
+  addSmthIntoModel() {
+    this.arrayOptions.push({
+      displayValue: 'displayValue3',
+      value: 'value3'
+    });
+  }
 }

@@ -1,6 +1,10 @@
-import {Component, forwardRef, OnInit, OnChanges, ElementRef} from '@angular/core';
-import { ControlValueAccessor,  NG_VALUE_ACCESSOR } from '@angular/forms';
-import {ParentChildService} from '../parent-child/parent-child.service';
+import {
+  Component, forwardRef, OnInit, OnChanges, ElementRef, QueryList, ContentChildren, AfterContentInit,
+  OnDestroy
+} from '@angular/core';
+import {ControlValueAccessor,  NG_VALUE_ACCESSOR} from '@angular/forms';
+import {NgSimpleSelectOptionComponent} from '../ng-simple-select-option/ng-simple-select-option.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'ng-simple-select',
@@ -14,25 +18,42 @@ import {ParentChildService} from '../parent-child/parent-child.service';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NgSimpleSelectComponent),
       multi: true
-    },
-    ParentChildService
+    }
   ]
 })
-export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueAccessor  {
+export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueAccessor, AfterContentInit, OnDestroy  {
   public disabled;
   public showDropdown: boolean;
   public value: string = 'Placeholder';
-  public displayValue: string;
+  @ContentChildren(NgSimpleSelectOptionComponent)
+  private options: QueryList<NgSimpleSelectOptionComponent>;
+  private subscriptions: Subscription[] = [];
 
-  constructor(private element: ElementRef,
-              private parentChild: ParentChildService) {
+  constructor(private element: ElementRef) {
   }
 
   ngOnChanges() {
   }
 
   ngOnInit() {
-    this.parentChild.setParenChangeEvent(this.element.nativeElement, this.childChanges.bind(this));
+  }
+
+  ngAfterContentInit() {
+    this.addParentFnToChildren(this.options);
+    let s = this.options.changes.subscribe((query) => {
+      this.addParentFnToChildren(query);
+    });
+    this.subscriptions.push(s);
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(s => s.unsubscribe());
+  }
+
+  private addParentFnToChildren(options: QueryList<NgSimpleSelectOptionComponent>) {
+    options.forEach((child) => {
+      child.setParentChangeFn(this.childChanges.bind(this));
+    });
   }
 
   public toggleDropdown() {
