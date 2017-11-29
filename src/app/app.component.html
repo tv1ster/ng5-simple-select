@@ -47,7 +47,7 @@
                             [(ngModel)]="arrayModel"
                             [displayValue]="arrayModel?.displayValue"
                             name="anotherName"
-                            (change)="log($event)"
+                            (change)="log()"
                             ngDefaultControl>
             <ng-simple-select-option *ngFor="let option of arrayOptions"
                                      [value]="option">{{option.displayValue}}</ng-simple-select-option>
