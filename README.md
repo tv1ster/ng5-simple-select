@@ -22,10 +22,6 @@ import {NgSimpleSelectModule} from 'ng5-simple-select';
 npm i ng5-simple-select --save
 ```
 
-The main difference right now, that it should have ngDefaultControl to work properly with template-driven form and reactive from
-
-![alt text](https://github.com/tv1ster/ng5-simple-select/blob/master/test.gif?raw=true "How it is working right now")
-
 # TODO
 - Scroll
 - Search on typing
