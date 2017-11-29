@@ -1,6 +1,6 @@
 import {
   Component, forwardRef, OnInit, OnChanges, ElementRef, QueryList, ContentChildren, AfterContentInit,
-  OnDestroy
+  OnDestroy, Input
 } from '@angular/core';
 import {ControlValueAccessor,  NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NgSimpleSelectOptionComponent} from '../ng-simple-select-option/ng-simple-select-option.component';
@@ -24,10 +24,12 @@ import {Subscription} from 'rxjs';
 export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueAccessor, AfterContentInit, OnDestroy  {
   public disabled;
   public showDropdown: boolean;
-  public value: string = 'Placeholder';
+  public value: any;
+  private subscriptions: Subscription[] = [];
+  @Input() public displayValue?: string|number;
+  @Input() public placeholder?: string = '';
   @ContentChildren(NgSimpleSelectOptionComponent)
   private options: QueryList<NgSimpleSelectOptionComponent>;
-  private subscriptions: Subscription[] = [];
 
   constructor(private element: ElementRef) {
   }
@@ -57,6 +59,9 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
   }
 
   public toggleDropdown() {
+    if (this.disabled) {
+      return;
+    }
     this.showDropdown = !this.showDropdown;
     this.onTouched();
   }
@@ -73,14 +78,14 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
     }
   }
 
-  writeValue(newVal: string): void {
+  writeValue(newVal: any): void {
     if (!this.disabled) {
       this.value = newVal;
       this.onChange(this.value);
     }
   }
 
-  registerOnChange(fn: (newVal: string) => void): void {
+  registerOnChange(fn: (newVal: any) => void): void {
     this.onChange = fn;
   }
 

@@ -3,9 +3,10 @@
 .ng-simple-select {
   position: relative;
   box-sizing: border-box;
+  height: 30px;
   &_input {
-    width: 100%;
     height: 30px;
+    width: 100%;
     border: 1px solid $border_color;
     display: inline-block;
     position: relative;

@@ -7,7 +7,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 })
 export class NgSimpleSelectOptionComponent implements OnInit {
   @Input() value?: string;
-  private parentChangeFn;
+  private parentChangeFn: (value: any) => void;
 
   constructor(private element: ElementRef) { }
 

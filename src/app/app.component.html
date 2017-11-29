@@ -12,7 +12,7 @@
       </h2>
 
       <div class="select">
-        <ng-simple-select>
+        <ng-simple-select [placeholder]="'Select an option'">
           <ng-simple-select-option>1</ng-simple-select-option>
           <ng-simple-select-option>2</ng-simple-select-option>
         </ng-simple-select>
@@ -39,13 +39,13 @@
   <div class="row">
     <div class="col"></div>
     <div class="col">
-      <p>ngModel: {{arrayModel}}</p>
-      <button (click)="addSmthIntoModel()">AddSmthIntoModel</button>
+      <p>ngModel: {{arrayModel | json}}</p>
+      <button class="btn btn-outline-secondary" (click)="addSmthIntoModel()">Add another option</button>
       <form #newForm="ngForm">
         <div class="select">
-          <ng-simple-select class="select" [(ngModel)]="arrayModel" name="anotherName" ngDefaultControl>
+          <ng-simple-select class="select" [(ngModel)]="arrayModel" [displayValue]="arrayModel?.displayValue" name="anotherName" ngDefaultControl>
             <ng-simple-select-option *ngFor="let option of arrayOptions"
-                                     [value]="option.value">{{option.displayValue}}</ng-simple-select-option>
+                                     [value]="option">{{option.displayValue}}</ng-simple-select-option>
           </ng-simple-select>
         </div>
       </form>

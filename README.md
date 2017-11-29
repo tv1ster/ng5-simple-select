@@ -15,8 +15,6 @@ The main difference right now, that it should have ngDefaultControl to work prop
 
 # TODO
 - Adding events
-- Explore more displayValue -> modelValue behaviour
-- Placeholder
 - Highliting
 - Scroll
 - Search o typing

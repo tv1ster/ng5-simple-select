@@ -21,14 +21,14 @@ export class AppComponent implements OnChanges{
     displayValue: 'displayValue3',
     value: 'value3'
   }];
-  arrayModel = '';
+  arrayModel;
   ngOnChanges(s) {
     console.log(s);
   }
   addSmthIntoModel() {
     this.arrayOptions.push({
-      displayValue: 'displayValue3',
-      value: 'value3'
+      displayValue: 'displayValue4',
+      value: 'value4'
     });
   }
 }

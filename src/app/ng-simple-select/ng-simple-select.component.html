@@ -1,7 +1,8 @@
 <div class="ng-simple-select">
   <div class="ng-simple-select_input"
        (click)="toggleDropdown()">
-    {{value}}
+    {{displayValue ? displayValue : value}}
+    {{!displayValue && !value ? placeholder : ''}}
   </div>
   <div class="ng-simple-select_dropdown" [hidden]="!showDropdown">
     <ng-content></ng-content>
