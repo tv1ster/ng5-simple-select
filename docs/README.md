@@ -11,7 +11,7 @@ import {NgSimpleSelectModule} from 'ng5-simple-select';
 
 If you want just to use select without form, you can just handle change event. It will pass you new value. If value wasn't provided for options, it will pass you what is inside html.  
 
-```html
+```
 <ng-simple-select [placeholder]="'Select an option'"
                   (change)="onSelectChange($event)">
   <ng-simple-select-option>1</ng-simple-select-option>
@@ -21,7 +21,7 @@ If you want just to use select without form, you can just handle change event. I
 
 If you want to use all template-driven form, or reactive form, you can use any of these, but previously, add `ngDefaultControl` directive to simple-select
 
-```html
+```
 <ng-simple-select [(ngModel)]="arrayModel"
                   [displayValue]="arrayModel?.displayValue"
                   name="fieldName"
@@ -39,4 +39,3 @@ Also, seems, like this module works fine with angular 4, so I will update some p
 - Scroll
 - Search on typing
 - Tab + Arrows + Enter Functionality
-- Deploy on npm
