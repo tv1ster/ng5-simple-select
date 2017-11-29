@@ -1,6 +1,6 @@
 import {
   Component, forwardRef, OnInit, OnChanges, ElementRef, QueryList, ContentChildren, AfterContentInit,
-  OnDestroy, Input
+  OnDestroy, Input, Output, EventEmitter
 } from '@angular/core';
 import {ControlValueAccessor,  NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NgSimpleSelectOptionComponent} from '../ng-simple-select-option/ng-simple-select-option.component';
@@ -11,7 +11,7 @@ import {Subscription} from 'rxjs';
   templateUrl: './ng-simple-select.component.html',
   styleUrls: ['ng-simple-select.component.scss'],
   host: {
-    '(document:click)': 'onDocClick($event)',
+    '(document:click)': 'onDocClick($event)'
   },
   providers: [
     {
@@ -28,6 +28,7 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
   private subscriptions: Subscription[] = [];
   @Input() public displayValue?: string|number;
   @Input() public placeholder?: string = '';
+  @Output() public change = new EventEmitter<any>();
   @ContentChildren(NgSimpleSelectOptionComponent)
   private options: QueryList<NgSimpleSelectOptionComponent>;
 
@@ -69,6 +70,7 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
   private childChanges(str: string) {
     this.showDropdown = false;
     this.value = str;
+    this.change.emit(this.value);
     this.onChange(this.value);
   }
 
@@ -80,8 +82,11 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
 
   writeValue(newVal: any): void {
     if (!this.disabled) {
+      // setting dirty state, if ngModel changed and this is not initialisation
+      if (this.value && this.value !== newVal) {
+        this.onChange(this.value);
+      }
       this.value = newVal;
-      this.onChange(this.value);
     }
   }
 
@@ -93,7 +98,7 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
     this.onTouched = fn;
   }
 
-  onChange = (newVal: string) => {};
+  onChange = (newVal: any) => {};
   onTouched = () => {};
 
   setDisabledState(isDisabled: boolean): void {

@@ -14,7 +14,6 @@ The main difference right now, that it should have ngDefaultControl to work prop
 ![alt text](https://github.com/tv1ster/ng5-simple-select/blob/master/test.gif?raw=true "How it is working right now")
 
 # TODO
-- Adding events
 - Highliting
 - Scroll
 - Search o typing

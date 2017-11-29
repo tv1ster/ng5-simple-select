@@ -43,7 +43,12 @@
       <button class="btn btn-outline-secondary" (click)="addSmthIntoModel()">Add another option</button>
       <form #newForm="ngForm">
         <div class="select">
-          <ng-simple-select class="select" [(ngModel)]="arrayModel" [displayValue]="arrayModel?.displayValue" name="anotherName" ngDefaultControl>
+          <ng-simple-select class="select"
+                            [(ngModel)]="arrayModel"
+                            [displayValue]="arrayModel?.displayValue"
+                            name="anotherName"
+                            (change)="log($event)"
+                            ngDefaultControl>
             <ng-simple-select-option *ngFor="let option of arrayOptions"
                                      [value]="option">{{option.displayValue}}</ng-simple-select-option>
           </ng-simple-select>
