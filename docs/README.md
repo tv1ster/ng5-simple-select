@@ -1,6 +1,8 @@
 # Installation
 
-`npm i ng5-simple-select`
+```
+npm i ng5-simple-select
+```
 ```js
 import {NgSimpleSelectModule} from 'ng5-simple-select';
 ```
