@@ -1,3 +1,5 @@
-<div class="ng-simple-select-option" (click)="setParentValue()">
+<div class="ng-simple-select-option"
+     [ngClass]="{'ng-simple-select-option--highlighted': highlighted}"
+     (click)="setParentValue()">
   <ng-content></ng-content>
 </div>

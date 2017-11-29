@@ -43,8 +43,10 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
 
   ngAfterContentInit() {
     this.addParentFnToChildren(this.options);
+    this.setChildHighlightedState(this.options);
     let s = this.options.changes.subscribe((query) => {
       this.addParentFnToChildren(query);
+      this.setChildHighlightedState(query);
     });
     this.subscriptions.push(s);
   }
@@ -59,6 +61,13 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
     });
   }
 
+  private setChildHighlightedState(options: QueryList<NgSimpleSelectOptionComponent>) {
+    let val = this.value;
+    options.forEach((child) => {
+      child.setHighlightedState(child.getValue() === val)
+    });
+  }
+
   public toggleDropdown() {
     if (this.disabled) {
       return;
@@ -70,6 +79,7 @@ export class NgSimpleSelectComponent implements OnInit, OnChanges, ControlValueA
   private childChanges(str: string) {
     this.showDropdown = false;
     this.value = str;
+    this.setChildHighlightedState(this.options);
     this.change.emit(this.value);
     this.onChange(this.value);
   }

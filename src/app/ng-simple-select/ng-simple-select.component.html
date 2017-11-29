@@ -4,7 +4,8 @@
     {{displayValue ? displayValue : value}}
     {{!displayValue && !value ? placeholder : ''}}
   </div>
-  <div class="ng-simple-select_dropdown" [hidden]="!showDropdown">
+  <div class="ng-simple-select_dropdown"
+       [hidden]="!showDropdown">
     <ng-content></ng-content>
   </div>
 </div>

@@ -8,6 +8,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 export class NgSimpleSelectOptionComponent implements OnInit {
   @Input() value?: string;
   private parentChangeFn: (value: any) => void;
+  private highlighted: boolean = false;
 
   constructor(private element: ElementRef) { }
 
@@ -24,5 +25,13 @@ export class NgSimpleSelectOptionComponent implements OnInit {
 
   public setParentChangeFn(fn) {
     this.parentChangeFn = fn;
+  }
+
+  public setHighlightedState(val: boolean) {
+    this.highlighted = val;
+  }
+
+  public getValue() {
+    return this.value;
   }
 }
