@@ -16,6 +16,8 @@ import {NgSimpleSelectModule} from 'ng5-simple-select';
                   name="fieldName"
                   ngDefaultControl>
   <ng-simple-select-option *ngFor="let option of arrayOptions"
-                           [value]="option">{{option.displayValue}}</ng-simple-select-option>
+                           [value]="option">
+    {{option.displayValue}}
+  </ng-simple-select-option>
 </ng-simple-select>
 ```  
