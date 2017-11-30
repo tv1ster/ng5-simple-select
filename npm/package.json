@@ -1,0 +1,33 @@
+{
+  "name": "ng5-simple-select",
+  "version": "0.0.2",
+  "description": "Simple select component for Angular 5.",
+  "main": "bundles/simpleSelect.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "angular5",
+    "angular 5",
+    "simple-select",
+    "simple select angular 5",
+    "simple-selct angular 5",
+    "simpleselect",
+    "simpleselct angular 5"
+  ],
+  "author": "Vadym Ruchka",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tv1ster/ng5-simple-select.git"
+  },
+  "homepage": "https://github.com/tv1ster/ng5-simple-select",
+  "bugs": {
+    "url": "https://github.com/tv1ster/ng5-simple-select/issues"
+  },
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "rxjs": "^5.0.0"
+  }
+}
