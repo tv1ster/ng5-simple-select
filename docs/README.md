@@ -35,7 +35,7 @@ If you want to use all template-driven form, or reactive form, you can use any o
 
 Also, seems, like this module works fine with angular 4, so I will update some peer decencies after testing.
 
-#Gif preview
+# Gif preview
 
 ![alt text](https://github.com/tv1ster/ng5-simple-select/blob/master/test.gif?raw=true "How it is working right now")
 
