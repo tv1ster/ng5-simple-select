@@ -3,7 +3,7 @@
   padding: 1px 5px;
   cursor: default;
   &--highlighted {
-    background-color: lighten($border_color, 10%);
+    background-color: lighten($border_color, 20%);
   }
   &:hover {
     background-color: lighten($border_color, 10%);

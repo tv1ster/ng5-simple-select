@@ -52,14 +52,12 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/configuration.html#resolve
    */
 
-
-  console.log(path.resolve(__dirname, 'dist/'));
   config.resolve = {
     modules: [root('demo'), 'node_modules'],
     // only discover files that have those extensions
     extensions: ['.ts', '.js', '.css', '.sass', '.scss', '.html'],
     alias: {
-      'ng5-simple-select': path.resolve(__dirname, 'dist/')
+      'ng5-simple-select': path.resolve(__dirname, 'dist')
     }
   };
 

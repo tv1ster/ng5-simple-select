@@ -7,7 +7,7 @@ module.exports = (config) => {
   });
 
   gulp.task('compile:dev', function () {
-    runSequence('clean:tmp', 'copy:tmp', 'inline', 'clean:dist', 'ngc', 'run-demo', 'watch');
+    runSequence('clean:tmp', 'copy:tmp', 'inline', 'clean:dist', 'ngc', 'watch', 'run-demo');
   });
 
   gulp.task('compile:on-change', function () {

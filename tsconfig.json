@@ -9,12 +9,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "outDir": "temp",
+    "outDir": "out-tsc",
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "ng5-simple-select": [
         "dist"
+      ],
+      "ng5-simple-select/*": [
+        "dist/*"
       ]
     }
   },
