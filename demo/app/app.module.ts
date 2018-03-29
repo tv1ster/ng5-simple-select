@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { DefaultSelectComponent } from './default-select/default-select.component';
+import { PlainSelectComponent } from './plain-select'
 
 import { NgSimpleSelectModule } from 'ng5-simple-select';
 
@@ -11,7 +11,7 @@ import { NgSimpleSelectModule } from 'ng5-simple-select';
 @NgModule({
   declarations: [
     AppComponent,
-    DefaultSelectComponent,
+    PlainSelectComponent,
   ],
   imports: [
     BrowserModule,

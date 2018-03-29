@@ -1,0 +1,16 @@
+.plain {
+  &_title {
+    font-weight: 600;
+    color: lighten(#000, 40%);
+  }
+  &_troubles {
+    color: #d32c2c;
+  }
+  &_feature {
+    color: black;
+  }
+  .ng-simple-select-option {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

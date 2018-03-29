@@ -1,62 +1,48 @@
 <div class="container">
+  <h2>ng5-simple-select</h2>
   <div class="row">
     <div class="col">
-      <h2>
-        Default select
-      </h2>
-      <app-default-select></app-default-select>
-    </div>
-    <div class="col">
-      <h2>
-        Simple select
-      </h2>
-
-      <div class="select">
-        <ng-simple-select [placeholder]="'Select an option'">
-          <ng-simple-select-option>1</ng-simple-select-option>
-          <ng-simple-select-option>2</ng-simple-select-option>
-        </ng-simple-select>
-      </div>
-
+      <p>Okey, let's start demo page from scratch and go step by step.</p>
+      <p class="step">1. Just simple select, which looks like default.</p>
+      <plain-select></plain-select>
     </div>
   </div>
-  <br/>
-  <div class="row">
-      <div class="col"></div>
-      <div class="col">
-        <p>ngModel: {{testModel}}</p>
-        <form #newForm="ngForm">
-          <div class="select">
-            <ng-simple-select class="select" [(ngModel)]="testModel" name="test" ngDefaultControl>
-              <ng-simple-select-option [value]="test1">1</ng-simple-select-option>
-              <ng-simple-select-option [value]="test2">2</ng-simple-select-option>
-            </ng-simple-select>
-          </div>
-        </form>
-      </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col"></div>
-    <div class="col">
-      <p>ngModel: {{arrayModel | json}}</p>
-      <button class="btn btn-outline-secondary" (click)="addSmthIntoModel()">Add another option</button>
-      <form #newForm="ngForm">
-        <div class="select">
-          <ng-simple-select class="select"
-                            [(ngModel)]="arrayModel"
-                            [displayValue]="arrayModel?.displayValue"
-                            name="anotherName"
-                            (change)="log()"
-                            ngDefaultControl>
-            <ng-simple-select-option *ngFor="let option of arrayOptions"
-                                     [value]="option">
-              {{option.displayValue}}
-            </ng-simple-select-option>
-          </ng-simple-select>
-        </div>
-      </form>
-    </div>
-  </div>
+  <!--<div class="row">-->
+      <!--<div class="col"></div>-->
+      <!--<div class="col">-->
+        <!--<p>ngModel: {{testModel}}</p>-->
+        <!--<form #newForm="ngForm">-->
+          <!--<div class="select">-->
+            <!--<ng-simple-select class="select" [(ngModel)]="testModel" name="test" ngDefaultControl>-->
+              <!--<ng-simple-select-option [value]="test1">1</ng-simple-select-option>-->
+              <!--<ng-simple-select-option [value]="test2">2</ng-simple-select-option>-->
+            <!--</ng-simple-select>-->
+          <!--</div>-->
+        <!--</form>-->
+      <!--</div>-->
+  <!--</div>-->
+  <!--<br>-->
+  <!--<div class="row">-->
+    <!--<div class="col"></div>-->
+    <!--<div class="col">-->
+      <!--<p>ngModel: {{arrayModel | json}}</p>-->
+      <!--<button class="btn btn-outline-secondary" (click)="addSmthIntoModel()">Add another option</button>-->
+      <!--<form #newForm="ngForm">-->
+        <!--<div class="select">-->
+          <!--<ng-simple-select class="select"-->
+                            <!--[(ngModel)]="arrayModel"-->
+                            <!--[displayValue]="arrayModel?.displayValue"-->
+                            <!--name="anotherName"-->
+                            <!--(change)="log()"-->
+                            <!--ngDefaultControl>-->
+            <!--<ng-simple-select-option *ngFor="let option of arrayOptions"-->
+                                     <!--[value]="option">-->
+              <!--{{option.displayValue}}-->
+            <!--</ng-simple-select-option>-->
+          <!--</ng-simple-select>-->
+        <!--</div>-->
+      <!--</form>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
 

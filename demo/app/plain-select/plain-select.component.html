@@ -1,0 +1,50 @@
+<div class="plain">
+  <p class="plain_title">Default select</p>
+  <p>So, how does default select behave?</p>
+  <div>
+    <select>
+      <option>1</option>
+      <option>2</option>
+    </select>
+  </div>
+  <br/>
+  <div>
+    <select>
+      <option>1</option>
+      <option>Some text</option>
+    </select>
+  </div>
+  <br/>
+  <div>
+    <select>
+      <option>This value will be shown</option>
+      <option>Some text</option>
+      <option>And here we have like a lot of text, like really a lot. Did I already say, that we will have here a lot of text?</option>
+    </select>
+  </div>
+  <br/>
+  <p>So... it is trying to be such width, as most long option. And somehow, here text is not cropped. In fact, it is going out of the window.</p>
+  <p class="plain_title">Simple select</p>
+  <ng-simple-select>
+    <ng-simple-select-option>1</ng-simple-select-option>
+    <ng-simple-select-option>2</ng-simple-select-option>
+  </ng-simple-select>
+  <br/>
+  <ng-simple-select>
+    <ng-simple-select-option>1</ng-simple-select-option>
+    <ng-simple-select-option>Some text</ng-simple-select-option>
+  </ng-simple-select>
+  <br/>
+  <ng-simple-select [placeholder]="'This value will be shown'">
+    <ng-simple-select-option>This value will be shown</ng-simple-select-option>
+    <ng-simple-select-option>Some text</ng-simple-select-option>
+    <ng-simple-select-option>And here we have like a lot of text, like really a lot. Did I already say, that we will have here a lot of text?And here we have like a lot of text, like really a lot. Did I already say, that we will have here a lot of text?And here we have like a lot of text, like really a lot. Did I already say, that we will have here a lot of text?And here we have like a lot of text, like really a lot. Did I already say, that we will have here a lot of text?</ng-simple-select-option>
+  </ng-simple-select>
+  <br/>
+  <p>Which issues do we have right now?</p>
+  <ul class="plain_troubles">
+    <li>No auto <span class="plain_feature">In most cases width set, so this should not be an issue</span></li>
+    <li>Not selecting first value by default. <span class="plain_feature">We can use [placeholder]</span></li>
+    <li>Really long text is shown in few lines. <span class="plain_feature">This is really great!</span> But we doesn't have option to crop it...</li>
+  </ul>
+</div>
